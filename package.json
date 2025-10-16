@@ -14,10 +14,38 @@
   "contributes": {
     "commands": [
       {
-        "command": "python-interpreter-favorites.helloWorld",
-        "title": "Hello World"
+        "command": "pythonInterpreterFavorites.selectInterpreter",
+        "title": "Python: Select Favorite Interpreter"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Python Interpreter Favorites",
+      "properties": {
+        "pythonInterpreterFavorites.interpreters": {
+          "type": "array",
+          "default": [],
+          "description": "List of favorite Python interpreters",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "description": "Display name for the interpreter"
+              },
+              "path": {
+                "type": "string",
+                "description": "Full path to the Python interpreter"
+              }
+            },
+            "required": [
+              "label",
+              "path"
+            ]
+          },
+          "scope": "resource"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
