@@ -94,15 +94,6 @@ async function setInterpreter(interpreterPath: string): Promise<void> {
       await pythonExtension.activate();
     }
 
-    // Update the default interpreter path setting
-    await vscode.workspace
-      .getConfiguration("python")
-      .update(
-        "defaultInterpreterPath",
-        resolvedPath,
-        vscode.ConfigurationTarget.Workspace
-      );
-
     // Use the Python extension's API to set the interpreter
     // The API provides an `environments` namespace with methods to update the interpreter
     const pythonApi = pythonExtension.exports;
