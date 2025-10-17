@@ -1,12 +1,35 @@
 {
   "name": "python-interpreter-favorites",
-  "displayName": "python-interpreter-favorites",
-  "description": "Pick your favorite Python interpreters and quickly switch between them",
-  "version": "0.0.1",
+  "displayName": "Python Interpreter Favorites",
+  "description": "Quickly switch between your favorite Python interpreters with a simple dropdown",
+  "version": "0.1.0",
+  "publisher": "jhoeke",
+  "author": {
+    "name": "jhoeke"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jh0ker/python-interpreter-favorites"
+  },
+  "bugs": {
+    "url": "https://github.com/jh0ker/python-interpreter-favorites/issues"
+  },
+  "keywords": [
+    "python",
+    "interpreter",
+    "environment",
+    "venv",
+    "virtualenv",
+    "conda",
+    "favorites",
+    "bookmarks"
+  ],
   "engines": {
-    "vscode": "^1.105.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
+    "Programming Languages",
     "Other"
   ],
   "activationEvents": [],

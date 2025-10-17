@@ -1,71 +1,118 @@
-# python-interpreter-favorites README
+# Python Interpreter Favorites
 
-This is the README for your extension "python-interpreter-favorites". After writing up a brief description, we recommend including the following sections.
+## DISCLAIMER
+
+This is almost entirely coded by AI and created for my personal needs.
+
+Quickly switch between your favorite Python interpreters with a simple dropdown menu. No more hunting through the full list of discovered interpreters!
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- ⚡ **Quick Switching**: Use the command palette to instantly switch between your favorite Python interpreters
+- 🌍 **Global & Workspace Settings**: Configure favorites at both user (global) and workspace level
+- 🔀 **Smart Merging**: Workspace favorites are combined with user favorites for maximum flexibility
+- 📁 **Variable Substitution**: Use `${workspaceFolder}`, `${userHome}`, and environment variables in paths
+- ✅ **Path Validation**: Visual warnings for interpreters with invalid paths
+- 🎯 **Immediate Activation**: Selected interpreters are activated instantly without manual confirmation
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+1. **Configure your favorites** in VS Code settings:
+   - Press `Ctrl+,` (or `Cmd+,` on Mac) to open Settings
+   - Search for "Python Interpreter Favorites"
+   - Add your favorite interpreters
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+2. **Switch interpreters**:
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+   - Type "Python: Select Favorite Interpreter"
+   - Select your desired interpreter from the dropdown
+
+## Configuration
+
+### User (Global) Settings
+
+Configure interpreters that should be available in all workspaces:
+
+```json
+{
+  "pythonInterpreterFavorites.interpreters": [
+    {
+      "label": "Python 3.11 System",
+      "path": "/usr/bin/python3.11"
+    },
+    {
+      "label": "Python 3.12 System",
+      "path": "C:\\Python312\\python.exe"
+    }
+  ]
+}
+```
+
+### Workspace Settings
+
+Configure project-specific interpreters in `.vscode/settings.json`:
+
+```json
+{
+  "pythonInterpreterFavorites.interpreters": [
+    {
+      "label": "Project Virtual Environment",
+      "path": "${workspaceFolder}/.venv/bin/python"
+    },
+    {
+      "label": "Project Conda Environment",
+      "path": "${userHome}/anaconda3/envs/myproject/bin/python"
+    }
+  ]
+}
+```
+
+### Variable Substitution
+
+Supported variables:
+- `${workspaceFolder}` - The path of the workspace folder
+- `${userHome}` - The user's home directory
+- `${env:VARIABLE}` - Environment variables (e.g., `${env:HOME}`)
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code 1.85.0 or higher
+- [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) by Microsoft
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+* `pythonInterpreterFavorites.interpreters`: Array of favorite Python interpreter configurations. Each entry requires:
+  * `label`: Display name for the interpreter
+  * `path`: Full path to the Python executable
 
-## Known Issues
+## Tips
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Workspace-level favorites appear first in the dropdown, followed by user-level favorites
+- Duplicate paths (same interpreter in both workspace and user settings) are automatically deduplicated, with workspace taking precedence
+- Invalid paths are marked with a ⚠️ warning but can still be set if needed
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.1.0
 
-### 1.0.0
+Initial release of Python Interpreter Favorites
 
-Initial release of ...
+- Quick switching between favorite interpreters
+- User and workspace-level configuration
+- Variable substitution in paths
+- Path validation
+- Immediate interpreter activation
 
-### 1.0.1
+## License
 
-Fixed issue #.
+MIT
 
-### 1.1.0
+## Contributing
 
-Added features X, Y, and Z.
+Found a bug or have a feature request? Please open an issue on [GitHub](https://github.com/jh0ker/python-interpreter-favorites).
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Enjoy!** 🐍
