@@ -2,7 +2,7 @@
   "name": "python-interpreter-favorites",
   "displayName": "Python Interpreter Favorites",
   "description": "Quickly switch between your favorite Python interpreters with a simple dropdown",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "jhoeke",
   "author": {
     "name": "jhoeke"

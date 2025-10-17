@@ -95,6 +95,10 @@ This extension contributes the following settings:
 
 ## Release Notes
 
+### 0.1.1
+
+- Don't set the `python.defaultInterpreterPath` setting
+
 ### 0.1.0
 
 Initial release of Python Interpreter Favorites
